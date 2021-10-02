@@ -1,18 +1,22 @@
 'use strict'
 
-const fastify = require('fastify')({
-  logger: true
-})
-const logger = require('pino')()
+const Fastify = require('Fastify')
 const routes = require('./routes')
 const config = require('./config')
+const fastify = Fastify({
+  logger: config.server.loggingEnabled
+})
 
-async function start () {
+function init () {
   // Initialize the routes
   fastify.register(routes)
   // Register routes, set default error and 404 handler
   fastify.setErrorHandler(errorHandler)
   fastify.setNotFoundHandler(notFoundHandler)
+  return fastify
+}
+
+async function start () {
   // Start the server
   await fastify.listen(config.server.port)
   return fastify
@@ -23,15 +27,8 @@ async function stop () {
 }
 
 async function errorHandler (err, request, reply) {
-  if (err.statusCode && err.statusCode !== 500) {
-    return await reply.status(err.statusCode).send({
-      name: err.name,
-      message: err.message
-    })
-  }
-  logger.error(err)
-  return await reply.status(500).send({
-    error: 'Something went wrong'
+  return await reply.status(err.statusCode || 400).send({
+    error: err.message
   })
 }
 
@@ -40,6 +37,7 @@ async function notFoundHandler (request, reply) {
 }
 
 module.exports = {
+  init,
   start,
   stop
 }

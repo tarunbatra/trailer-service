@@ -3,6 +3,7 @@
 const server = require('./server')
 const logger = require('pino')()
 
+server.init()
 server.start()
 
 // Process event handlers

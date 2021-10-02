@@ -8,7 +8,7 @@
     "start": "node index.js",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "tap"
+    "test": "tap --no-coverage"
   },
   "author": "Tarun Batra <tarun.batra00@gmail.com>",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "pino": "^6.13.3"
   },
   "devDependencies": {
+    "light-my-request": "^4.4.4",
     "nodemon": "^2.0.13",
     "standard": "^16.0.3",
     "tap": "^15.0.10"
