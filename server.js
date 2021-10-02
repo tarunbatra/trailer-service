@@ -1,6 +1,6 @@
 'use strict'
 
-const Fastify = require('Fastify')
+const Fastify = require('fastify')
 const routes = require('./routes')
 const config = require('./config')
 const fastify = Fastify({
