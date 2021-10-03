@@ -8,14 +8,24 @@ The application takes a viaply URL for a movie and returns the URL to the traile
 
 ## Run tests
 
-`npm t`
+`npm t` will run the tests using `tap`.
 
 ## Run the server
 
-`npm start`
+`npm run dev` runs the server in dev mode using nodemon. It should just work.
+
+`npm start` is more proper way to start the application. Don't forget to provide the required environment variable `TMDB_API_KEY` when running this way.
 
 The `/trailer` route is behind basic authorization. Default username/password is `dev:dev`.
 
+## Envs
+|env|default|required|
+|---|-------|--------|
+|PORT|3000||
+|NODE_ENV|local||
+|BASIC_AUTH_USERNAME|dev||
+|BASIC_AUTH_PASSWORD|dev||
+|TMDB_API_KEY|INVALID_API_KEY|✅|
 ## Docs
 The Open API 3 docs will be available on `/docs` route.
 
@@ -23,8 +33,7 @@ The Open API 3 docs will be available on `/docs` route.
 
 ```sh
 curl -X 'GET' \
-  'http://0.0.0.0:3000/trailer?link=https%3A%2F%2Fcontent.viaplay.se%2Fpc-se%2Ffilm%2Farrival-2016' \
-  -H 'accept: */*' \
+  'http://0.0.0.0:3000/trailer?link=https://content.viaplay.se/pc-se/film/arrival-2016' \
   -H 'Authorization: Basic ZGV2OmRldg=='
 ```
 ## TODOs
