@@ -12,6 +12,9 @@
   },
   "author": "Tarun Batra <tarun.batra00@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "axios": "^0.22.0",
     "dotenv": "^10.0.0",
