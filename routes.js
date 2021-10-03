@@ -7,6 +7,7 @@ const swagger = require('fastify-swagger')
 module.exports = async function (fastify, options) {
   fastify
     .register(fp(docs))
+    .get('/', (req, reply) => reply.send('OK'))
     .register(routes)
 }
 
