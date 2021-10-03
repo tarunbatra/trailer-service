@@ -2,8 +2,17 @@ const MovieDb = require('moviedb-promise').MovieDb
 const API_KEY = require('../config').services.tmdb.apiKey
 
 const moviedb = new MovieDb(API_KEY)
-
+/**
+ * It represents a movie
+ * @class
+ */
 class Movie {
+
+  /**
+   * Fetches details of a movie using IMDB id
+   * @param {string} imdbId IMDB id for a movie
+   * @returns this
+   */
   async fetchMovieData (imdbId) {
     this.imdbId = imdbId
     const res = await moviedb.find({
@@ -15,6 +24,10 @@ class Movie {
     return this
   }
 
+  /**
+   * Parses the movie data to get trailer info
+   * @returns trailer - Link to youtube trailer
+   */
   async getTrailer () {
     const res = await moviedb.movieInfo({
       id: this.movie.id,
