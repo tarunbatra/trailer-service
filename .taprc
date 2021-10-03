@@ -3,7 +3,7 @@ test-env:
   - NODE_ENV=test
   - PORT=0
   - TMDB_API_KEY=017bf5c0c8ff9511a85ae3f6901447af
-branches: 80
+branches: 70
 functions: 80
 lines: 80
 statements: 80

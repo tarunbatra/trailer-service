@@ -1,3 +1,7 @@
+'use strict'
+
+// NOTE: Using a wrapper for the TMDB API because
+// re-inventing the wheel is unnecessary here IMO
 const MovieDb = require('moviedb-promise').MovieDb
 const API_KEY = require('../config').services.tmdb.apiKey
 
@@ -7,7 +11,6 @@ const moviedb = new MovieDb(API_KEY)
  * @class
  */
 class Movie {
-
   /**
    * Fetches details of a movie using IMDB id
    * @param {string} imdbId IMDB id for a movie

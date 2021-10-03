@@ -8,7 +8,7 @@
     "start": "node index.js",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "tap --no-coverage"
+    "test": "tap"
   },
   "author": "Tarun Batra <tarun.batra00@gmail.com>",
   "license": "MIT",
